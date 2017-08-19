@@ -1,0 +1,14 @@
+Config {
+    commands = 
+      [ Run MultiCpu [] 10
+      , Run Memory ["-t", "Mem: <used>M (<usedratio>%)"] 10
+      , Run DynNetwork ["-t", "net: <rx>/<tx> KBps"] 10
+      , Run Kbd [("us", "US"), ("gr", "GR"), ("tr", "TR")]
+      , Run Date "<fc=#dd3333>%a %d/%m/%Y %H:%M:%S</fc>" "date" 10
+      , Run StdinReader
+      ]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "%StdinReader% }{ %multicpu% | %memory% | %dynnetwork% | %kbd% * %date%"
+}
+
